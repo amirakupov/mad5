@@ -13,10 +13,10 @@ import com.example.movieappmad24.widgets.SimpleTopAppBar
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen(navController: NavController) {
+fun WatchlistScreen(navController: NavController){
     Scaffold (
         topBar = {
-            SimpleTopAppBar(title = "Movie App")
+            SimpleTopAppBar(title = "Your Watchlist")
         },
         bottomBar = {
             SimpleBottomAppBar(
@@ -24,11 +24,11 @@ fun HomeScreen(navController: NavController) {
             )
         }
     ){ innerPadding ->
+
         MovieList(
             modifier = Modifier.padding(innerPadding),
             movies = getMovies(),
-            navController = navController
-        )
+            navController = navController)
+
     }
 }
-
