@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
 import com.example.movieappmad24.models.getMovies
+import com.example.movieappmad24.viewmodels.MoviesViewModel
 import com.example.movieappmad24.widgets.HorizontalScrollableImageView
 import com.example.movieappmad24.widgets.MovieRow
 import com.example.movieappmad24.widgets.SimpleTopAppBar
@@ -18,7 +19,8 @@ import com.example.movieappmad24.widgets.SimpleTopAppBar
 @Composable
 fun DetailScreen(
     movieId: String?,
-    navController: NavController
+    navController: NavController,
+    moviesViewModel: MoviesViewModel
 ) {
 
     movieId?.let {
