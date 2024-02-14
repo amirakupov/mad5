@@ -62,8 +62,6 @@ fun MovieList(
     LazyColumn(modifier = modifier) {
         items(movies) { movie ->
             MovieRow(movie = movie) {movieId ->
-                // Log.d("MovieList", "My callback value: $movieId")
-
                 navController.navigate(route = Screen.DetailScreen.withId(movieId))
             }
         }
@@ -88,7 +86,6 @@ fun MovieRow(
         Column {
 
             MovieCardHeader(imageUrl = movie.images[0])
-
 
             MovieDetails(modifier = modifier.padding(12.dp), movie = movie)
 

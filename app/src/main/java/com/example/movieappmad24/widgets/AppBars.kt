@@ -26,7 +26,7 @@ fun SimpleTopAppBar(
             containerColor = MaterialTheme.colorScheme.primaryContainer,
             titleContentColor = MaterialTheme.colorScheme.primary
         ),
-        navigationIcon = {navigationIcons()}
+        navigationIcon = navigationIcons
     )
 }
 
