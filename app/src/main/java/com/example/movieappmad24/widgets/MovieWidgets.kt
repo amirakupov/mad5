@@ -1,5 +1,6 @@
 package com.example.movieappmad24.widgets
 
+import android.util.Log
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
@@ -149,11 +150,14 @@ fun FavoriteIcon(
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .padding(10.dp)
-            .clickable { onFavoriteClick() },
+            .padding(10.dp),
         contentAlignment = Alignment.TopEnd
     ){
         Icon(
+            modifier = Modifier.clickable {
+                onFavoriteClick()
+                Log.i("MovieWidget", "icon clicked")
+                                          },
             tint = MaterialTheme.colorScheme.secondary,
             imageVector =
             if (isFavorite) {
