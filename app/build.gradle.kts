@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("com.google.devtools.ksp")
 }
 
 kotlin {
@@ -44,7 +45,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.1"
+        kotlinCompilerExtensionVersion = "1.5.7"
     }
     packaging {
         resources {
@@ -54,11 +55,22 @@ android {
 }
 
 dependencies {
+    implementation("androidx.databinding:adapters:3.2.0-alpha11")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
+    implementation("androidx.work:work-runtime-ktx:2.9.0")
     // versions
     val nav_version = "2.7.7"
     val lifecycle_version = "2.7.0"
 
     val media3_version = "1.2.1"
+
+    val room_version = "2.6.1"
+    // room dependencies
+    implementation("androidx.room:room-runtime:$room_version")
+    // To use Kotlin Symbol Processing (KSP)
+    ksp("androidx.room:room-compiler:$room_version")
+    // optional - Kotlin Extensions and Coroutines support for Room
+    implementation("androidx.room:room-ktx:$room_version")
 
     // For media playback using ExoPlayer
     implementation("androidx.media3:media3-exoplayer:$media3_version")
@@ -67,6 +79,8 @@ dependencies {
 
     // ViewModel utilities for Compose
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycle_version")
+
+    implementation ("com.google.code.gson:gson:2.10.1")
 
     implementation("androidx.core:core-ktx:1.10.1")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
